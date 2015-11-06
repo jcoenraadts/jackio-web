@@ -17,7 +17,8 @@ function initViewModel() {
 
 function getJackDeviceData() {
     $.ajax({
-        url: "http://localhost:5299/api/jack/all",
+        //url: "http://localhost:5299/api/jack/all",
+        url: "http://api.jack.io/api/jack/all",
         success: ajaxSuccess,            
         fail: ajaxFail
     });
