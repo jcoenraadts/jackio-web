@@ -1,4 +1,6 @@
 ﻿var firstGet = true;
+//var url = "http://localhost:5299/api/jack/all";
+var url = "http://api.jack.io/api/jack/all";
 
 var vm = {
     jackDevices: ko.observableArray()
@@ -17,8 +19,7 @@ function initViewModel() {
 
 function getJackDeviceData() {
     $.ajax({
-        url: "http://localhost:5299/api/jack/all",
-        //url: "http://api.jack.io/api/jack/all",
+        url: url,
         success: ajaxSuccess,            
         fail: ajaxFail
     });
@@ -33,5 +34,6 @@ function ajaxSuccess(data) {
 };
 
 function ajaxFail(data) {
-    console.log("AJAX Failed");
+    console.log("AJAX Failed, trying new url");
+    url = "http://api.jack.io/api/jack/all";
 };
