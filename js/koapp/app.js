@@ -18,12 +18,19 @@ function initViewModel() {
 function getJackDeviceData() {
     $.ajax({
         url: "http://localhost:5299/api/jack/all",
-        success: function (data) {
-            vm.jackDevices(data);
-            if (firstGet) {
-                firstGet = false;
-                ko.applyBindings(vm);
-            };            
-        }
+        success: ajaxSuccess,            
+        fail: ajaxFail
     });
+};
+
+function ajaxSuccess(data) {
+    vm.jackDevices(data);
+    if (firstGet) {
+        firstGet = false;
+        ko.applyBindings(vm);
+    };
+};
+
+function ajaxFail(data) {
+    console.log("AJAX Failed");
 };
