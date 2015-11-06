@@ -113,22 +113,24 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Jack ID</th>
+                                <th>Description</th>
+                                <th>Floor</th>
+                                <th>Location</th>
                                 <th>Timestamp</th>
-                                <th>Presence</th>
+                                <th>Present</th>
                                 <th>Height</th>
-                                <th>Temperature</th>
-                                <th>Presence Mean</th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: jackDevices()">
                             <tr>
                                 <td data-bind="text: DeviceId"></td>
+                                <td data-bind="text: WorkpointId"></td>
+                                <td data-bind="text: Floor"></td>
+                                <td data-bind="text: Location"></td>
                                 <td data-bind="text: moment(TimeStamp).format('DD/MM/YY HH:mm:ss')"></td>
                                 <td data-bind="text: Present"></td>
                                 <td><span data-bind="text: Height"></span> mm</td>
-                                <td data-bind="text: Temperature"></td>
-                                <td data-bind="text: MeanProxValue"></td>
                             </tr>
                         </tbody>
                     </table>
